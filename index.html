@@ -42,13 +42,13 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-           background-image: url('https://triplounna.in/logo.png');
+            background-image: url('https://triplounna.in/logo.png');
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover; /* This forces the logo to fit the entire screen */
             opacity: 0.15; /* Keeps it soft so you can easily read your links */
             z-index: -1; 
-            pointer-events: none;* Prevents background blocking button clicks */
+            pointer-events: none; /* Fixed syntax error typo here */
         }
 
         .container {
@@ -91,39 +91,89 @@
             margin: 0 auto;
         }
 
-        /* Featured Video Section */
+        /* Featured Video Section Wrapper */
         .featured-video {
             background-color: var(--card-bg);
             border-radius: 16px;
             padding: 1.5rem;
             margin-bottom: 2.5rem;
-            border: 1px solid #334155;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
         }
 
         .featured-video h2 {
             font-size: 1.2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .video-container {
+        /* Video Carousel Slider Track Core Styles */
+        .slider-card {
+            display: block;
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
+            width: 240px; /* Fixed video frame size inside track */
+            aspect-ratio: 16/9;
+            border-radius: 8px;
             overflow: hidden;
-            border-radius: 10px;
-            background: #000;
+            background-color: #000;
+            flex-shrink: 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
         }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .slider-card img {
             width: 100%;
             height: 100%;
-            border: 0;
+            display: block;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .slider-card:hover {
+            transform: scale(1.02);
+        }
+
+        .slider-card:hover img {
+            opacity: 1;
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(220, 38, 38, 0.95);
+            width: 44px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .play-overlay svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+
+        /* Pauses the carousel track automatically when a visitor hovers their mouse */
+        .video-slider-track-window:hover .video-slider-track {
+            animation-play-state: paused !important;
+        }
+
+        /* Continuous Infinite Right to Left Animation loop script */
+        @keyframes scrollRightToLeft {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-50% - 0.5rem)); 
+            }
         }
 
         /* Links / Content Grid */
@@ -186,23 +236,95 @@
             <p class="subtitle">Exploring landmarks, historical marvels, and travel journeys one video at a time.</p>
         </header>
 
+        <!-- Infinite Scrolling Moving Video Slider Section -->
+        <!-- Infinite Scrolling Moving Video Slider Section -->
         <section class="featured-video">
-            <h2>🎬 Latest Exploration</h2>
-            <a href="https://www.youtube.com/watch?v=_6ojZqzUSuE" target="_blank" style="text-decoration: none; display: block; position: relative; border-radius: 10px; overflow: hidden; background-color: #000; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">
+            <h2>🎬 Latest Explorations</h2>
+            
+            <!-- Horizontal Slider Window Track Frame -->
+            <div class="video-slider-track-window" style="width: 100%; overflow: hidden; position: relative; mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);">
                 
-                <img src="https://img.youtube.com/vi/_6ojZqzUSuE/maxresdefault.jpg" alt="Bhadrachalam Temple Vlog Thumbnail" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 16/9; opacity: 0.85;">
-                
-                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(220, 38, 38, 0.9); width: 68px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(0,0,0,0.4);">
-                    <svg viewBox="0 0 24 24" style="width: 26px; height: 26px; fill: white;">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
+                <!-- Moving Track Wrapper Loop (Speed set to 25s) -->
+                <div class="video-slider-track" style="display: flex; gap: 1rem; width: max-content; animation: scrollRightToLeft 25s linear infinite;">
+                    
+                    <!-- VIDEO 1 (Bhadrachalam Temple) -->
+                    <a href="https://www.youtube.com/watch?v=_6ojZqzUSuE" target="_blank" class="slider-card">
+                        <img src="https://img.youtube.com/vi/_6ojZqzUSuE/maxresdefault.jpg" alt="Bhadrachalam Temple Vlog">
+                        <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    </a>
+
+                    <!-- VIDEO 2 (Narasimha Swamy Temple) -->
+                    <a href="https://www.youtube.com/watch?v=y29jdWMqnO8" target="_blank" class="slider-card">
+                        <img src="https://img.youtube.com/vi/y29jdWMqnO8/maxresdefault.jpg" alt="Narasimha Swamy Temple, Papanashini & Fort Tour">
+                        <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    </a>
+
+                    <!-- VIDEO 3 (Kodaikanal Lake) -->
+                    <a href="https://www.youtube.com/watch?v=HG-1yNOm1SE" target="_blank" class="slider-card">
+                        <img src="https://img.youtube.com/vi/HG-1yNOm1SE/maxresdefault.jpg" alt="Kodaikanal Lake Boating Experience">
+                        <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    </a>
+
+                    <!-- VIDEO 4 (Maha Shiva Lingam) -->
+                    <a href="https://www.youtube.com/watch?v=R2laq53do3w" target="_blank" class="slider-card">
+                        <img src="https://img.youtube.com/vi/R2laq53do3w/maxresdefault.jpg" alt="Heaven or Hell Before the Maha Shiva Lingam">
+                        <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    </a>
+
+                    <!-- VIDEO 5 (Borra Caves) -->
+                    <a href="https://www.youtube.com/watch?v=DbjDE9lmTXQ" target="_blank" class="slider-card">
+                        <img src="https://img.youtube.com/vi/DbjDE9lmTXQ/maxresdefault.jpg" alt="Borra Caves Araku Valley Guide">
+                        <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    </a>
+
+                    <!-- VIDEO 6 (Tirumala Balaji) -->
+                    <a href="https://www.youtube.com/watch?v=HT8QdyewAQI" target="_blank" class="slider-card">
+                        <img src="https://img.youtube.com/vi/HT8QdyewAQI/maxresdefault.jpg" alt="Walking to Tirumala Balaji Temple">
+                        <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    </a>
+
+                    <!-- ======================================================= -->
+                    <!-- DUPLICATE COPIES (Repeated exactly for the seamless infinite loop) -->
+                    <!-- ======================================================= -->
+                    
+                    <!-- DUP VIDEO 1 -->
+                    <a href="https://www.youtube.com/watch?v=_6ojZqzUSuE" target="_blank" class="slider-card" aria-hidden="true">
+                        <img src="https://img.youtube.com/vi/_6ojZqzUSuE/maxresdefault.jpg" alt="Bhadrachalam Temple Vlog">
+                        <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    </a>
+
+                    <!-- DUP VIDEO 2 -->
+                    <a href="https://www.youtube.com/watch?v=y29jdWMqnO8" target="_blank" class="slider-card" aria-hidden="true">
+                        <img src="https://img.youtube.com/vi/y29jdWMqnO8/maxresdefault.jpg" alt="Narasimha Swamy Temple, Papanashini & Fort Tour">
+                        <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    </a>
+
+                    <!-- DUP VIDEO 3 -->
+                    <a href="https://www.youtube.com/watch?v=HG-1yNOm1SE" target="_blank" class="slider-card" aria-hidden="true">
+                        <img src="https://img.youtube.com/vi/HG-1yNOm1SE/maxresdefault.jpg" alt="Kodaikanal Lake Boating Experience">
+                        <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    </a>
+
+                    <!-- DUP VIDEO 4 -->
+                    <a href="https://www.youtube.com/watch?v=R2laq53do3w" target="_blank" class="slider-card" aria-hidden="true">
+                        <img src="https://img.youtube.com/vi/R2laq53do3w/maxresdefault.jpg" alt="Heaven or Hell Before the Maha Shiva Lingam">
+                        <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    </a>
+
+                    <!-- DUP VIDEO 5 -->
+                    <a href="https://www.youtube.com/watch?v=DbjDE9lmTXQ" target="_blank" class="slider-card" aria-hidden="true">
+                        <img src="https://img.youtube.com/vi/DbjDE9lmTXQ/maxresdefault.jpg" alt="Borra Caves Araku Valley Guide">
+                        <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    </a>
+
+                    <!-- DUP VIDEO 6 -->
+                    <a href="https://www.youtube.com/watch?v=HT8QdyewAQI" target="_blank" class="slider-card" aria-hidden="true">
+                        <img src="https://img.youtube.com/vi/HT8QdyewAQI/maxresdefault.jpg" alt="Walking to Tirumala Balaji Temple">
+                        <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    </a>
+
                 </div>
-                
-                <style>
-                    .featured-video a:hover { transform: scale(1.01); }
-                    .featured-video a:hover img { opacity: 1 !important; }
-                </style>
-            </a>
+            </div>
         </section>
 
         <main class="links-grid">
@@ -225,6 +347,7 @@
 
         </main>
 
+        <!-- Native Form Submission (Pure HTML Only) -->
         <section style="background-color: #ffffff; border-radius: 12px; padding: 2rem; margin-top: 2rem; border: 1px solid #e2e8f0; max-width: 500px; margin-left: auto; margin-right: auto; position: relative; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
             
             <div style="position: absolute; top: 20px; right: 20px; background-color: #2d3748; color: #ffffff; padding: 8px 16px; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase;">
