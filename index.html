@@ -113,7 +113,7 @@
         .slider-card {
             display: block;
             position: relative;
-            width: 240px; /* Fixed video frame size inside track */
+            width: 320px; /* Increased from 240px to make the frame larger and taller */
             aspect-ratio: 16/9;
             border-radius: 8px;
             overflow: hidden;
@@ -242,7 +242,7 @@
             <h2>🎬 Latest Explorations</h2>
             
             <!-- Horizontal Slider Window Track Frame -->
-            <div class="video-slider-track-window" style="width: 100%; overflow: hidden; position: relative; mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);">
+            <div class="video-slider-track" style="display: flex; gap: 1rem; width: max-content; animation: scrollRightToLeft 35s linear infinite;">
                 
                 <!-- Moving Track Wrapper Loop (Speed set to 25s) -->
                 <div class="video-slider-track" style="display: flex; gap: 1rem; width: max-content; animation: scrollRightToLeft 25s linear infinite;">
