@@ -170,10 +170,24 @@
         <!-- Featured Video Section (Replace the video ID below with your actual YouTube video ID) -->
         <section class="featured-video">
             <h2>🎬 Latest Exploration</h2>
-            <div class="video-container">
-                <!-- Replace 'dQw4w9WgXcQ' with your actual YouTube video URL ID -->
-                <iframe src="https://www.youtube.com/watch?v=_6ojZqzUSuE" allowfullscreen></iframe>
-            </div>
+            <a href="https://www.youtube.com/watch?v=_6ojZqzUSuE" target="_blank" style="text-decoration: none; display: block; position: relative; border-radius: 10px; overflow: hidden; background-color: #000; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">
+                
+                <!-- High-Resolution YouTube Thumbnail Cover -->
+                <img src="https://img.youtube.com/vi/_6ojZqzUSuE/maxresdefault.jpg" alt="Bhadrachalam Temple Vlog Thumbnail" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 16/9; opacity: 0.85;">
+                
+                <!-- Central YouTube Play Button Overlay Overlay -->
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(220, 38, 38, 0.9); width: 68px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(0,0,0,0.4);">
+                    <svg viewBox="0 0 24 24" style="width: 26px; height: 26px; fill: white;">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </div>
+                
+                <!-- Hover effect helper styling -->
+                <style>
+                    .featured-video a:hover { transform: scale(1.01); }
+                    .featured-video a:hover img { opacity: 1 !important; }
+                </style>
+            </a>
         </section>
 
         <!-- Quick Links / Navigation Navigation Grid -->
