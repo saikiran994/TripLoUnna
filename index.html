@@ -235,7 +235,29 @@
             <h1>TripLoUnna</h1>
             <p class="subtitle">Exploring landmarks, historical marvels, and travel journeys one video at a time.</p>
         </header>
+        <section style="background-color: var(--card-bg); border-radius: 16px; padding: 1.5rem; margin-top: 2rem; margin-bottom: 2rem; border: 1px solid #e2e8f0;">
+            <h2 style="font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: var(--text-main);">🔍 Channel Best Video Finder</h2>
+            
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <input type="text" id="channelSearchInput" placeholder="Enter YouTube Channel Name or URL (e.g. TripLoUnna)..." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #334155; font-family: inherit;">
+                <button id="searchBtn" onclick="findChannelVideos()" style="background-color: var(--text-main); color: var(--bg-color); border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s;">
+                    Search
+                </button>
+            </div>
 
+            <div id="searchResultsDisplay" style="display: none; flex-direction: column; gap: 1.5rem;">
+                <div>
+                    <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--text-main); border-bottom: 2px solid #e2e8f0; padding-bottom: 0.25rem;">📹 Top 3 Long Videos</h3>
+                    <div id="longVideosContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;"></div>
+                </div>
+                <div>
+                    <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--text-main); border-bottom: 2px solid #e2e8f0; padding-bottom: 0.25rem;">📱 Top 3 Short Videos (Shorts)</h3>
+                    <div id="shortVideosContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;"></div>
+                </div>
+            </div>
+            
+            <div id="searchErrorMessage" style="display: none; color: #dc2626; font-size: 0.9rem; text-align: center; margin-top: 0.5rem;"></div>
+        </section>
         <section class="featured-video">
             <h2>🎬 Latest Explorations</h2>
             
@@ -327,29 +349,6 @@
 
         </main>
 
-        <section style="background-color: var(--card-bg); border-radius: 16px; padding: 1.5rem; margin-top: 2rem; margin-bottom: 2rem; border: 1px solid #e2e8f0;">
-            <h2 style="font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: var(--text-main);">🔍 Channel Best Video Finder</h2>
-            
-            <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
-                <input type="text" id="channelSearchInput" placeholder="Enter YouTube Channel Name or URL (e.g. TripLoUnna)..." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #334155; font-family: inherit;">
-                <button id="searchBtn" onclick="findChannelVideos()" style="background-color: var(--text-main); color: var(--bg-color); border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s;">
-                    Search
-                </button>
-            </div>
-
-            <div id="searchResultsDisplay" style="display: none; flex-direction: column; gap: 1.5rem;">
-                <div>
-                    <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--text-main); border-bottom: 2px solid #e2e8f0; padding-bottom: 0.25rem;">📹 Top 3 Long Videos</h3>
-                    <div id="longVideosContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;"></div>
-                </div>
-                <div>
-                    <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--text-main); border-bottom: 2px solid #e2e8f0; padding-bottom: 0.25rem;">📱 Top 3 Short Videos (Shorts)</h3>
-                    <div id="shortVideosContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;"></div>
-                </div>
-            </div>
-            
-            <div id="searchErrorMessage" style="display: none; color: #dc2626; font-size: 0.9rem; text-align: center; margin-top: 0.5rem;"></div>
-        </section>
 
         <section style="background-color: #ffffff; border-radius: 12px; padding: 2rem; margin-top: 2rem; border: 1px solid #e2e8f0; max-width: 500px; margin-left: auto; margin-right: auto; position: relative; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
             
