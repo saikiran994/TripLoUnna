@@ -415,7 +415,7 @@
                 // Render Dynamic Long Form Results
                 if(data.longVideos && data.longVideos.length > 0) {
                     data.longVideos.forEach(vid => {
-                        longContainer.innerHTML += createVideoTemplateCard(vid.id, vid.title);
+                        longContainer.innerHTML += createVideoTemplateCard(vid.id, vid.title, vid.views);
                     });
                 } else {
                     longContainer.innerHTML = '<p style="font-size:0.9rem; color:var(--text-muted); padding:0.5rem;">No recent long form content found.</p>';
@@ -424,7 +424,7 @@
                 // Render Dynamic Shorts Form Results
                 if(data.shortVideos && data.shortVideos.length > 0) {
                     data.shortVideos.forEach(vid => {
-                        shortContainer.innerHTML += createVideoTemplateCard(vid.id, vid.title);
+                        shortContainer.innerHTML += createVideoTemplateCard(vid.id, vid.title, vid.views);
                     });
                 } else {
                     shortContainer.innerHTML = '<p style="font-size:0.9rem; color:var(--text-muted); padding:0.5rem;">No recent shorts found.</p>';
@@ -440,11 +440,25 @@
             }
         }
 
-        function createVideoTemplateCard(id, title) {
+        // Helper function to turn numeric strings into a clean metric badge format
+        function formatViews(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M views';
+            }
+            if (num >= 1000) {
+                return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K views';
+            }
+            return num + ' views';
+        }
+
+        function createVideoTemplateCard(id, title, views) {
             return `
                 <a href="https://www.youtube.com/watch?v=${id}" target="_blank" style="text-decoration: none; display: block; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: transform 0.2s;">
                     <img src="https://img.youtube.com/vi/${id}/mqdefault.jpg" alt="${title}" style="width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover;">
-                    <span style="display: block; padding: 0.6rem; font-size: 0.85rem; color: #0f172a; font-weight: 600; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${title}">${title}</span>
+                    <div style="padding: 0.6rem;">
+                        <span style="display: block; font-size: 0.85rem; color: #0f172a; font-weight: 600; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 0.2rem;" title="${title}">${title}</span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: 500;">🔥 ${formatViews(views)}</span>
+                    </div>
                 </a>
             `;
         }
