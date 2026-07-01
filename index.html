@@ -48,7 +48,7 @@
             background-size: cover; /* This forces the logo to fit the entire screen */
             opacity: 0.15; /* Keeps it soft so you can easily read your links */
             z-index: -1; 
-            pointer-events: none; /* Fixed syntax error typo here */
+            pointer-events: none; 
         }
 
         .container {
@@ -113,7 +113,7 @@
         .slider-card {
             display: block;
             position: relative;
-            width: 320px; /* Increased from 240px to make the frame larger and taller */
+            width: 320px; /* Thicker horizontal frame cards */
             aspect-ratio: 16/9;
             border-radius: 8px;
             overflow: hidden;
@@ -236,88 +236,68 @@
             <p class="subtitle">Exploring landmarks, historical marvels, and travel journeys one video at a time.</p>
         </header>
 
-        <!-- Infinite Scrolling Moving Video Slider Section -->
-        <!-- Infinite Scrolling Moving Video Slider Section -->
         <section class="featured-video">
             <h2>🎬 Latest Explorations</h2>
             
-            <!-- Horizontal Slider Window Track Frame -->
-            <div class="video-slider-track" style="display: flex; gap: 1rem; width: max-content; animation: scrollRightToLeft 35s linear infinite;">
+            <div class="video-slider-track-window" style="width: 100%; overflow: hidden; position: relative; mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);">
                 
-                <!-- Moving Track Wrapper Loop (Speed set to 25s) -->
-                <div class="video-slider-track" style="display: flex; gap: 1rem; width: max-content; animation: scrollRightToLeft 25s linear infinite;">
+                <div class="video-slider-track" style="display: flex; gap: 1rem; width: max-content; animation: scrollRightToLeft 35s linear infinite;">
                     
-                    <!-- VIDEO 1 (Bhadrachalam Temple) -->
                     <a href="https://www.youtube.com/watch?v=_6ojZqzUSuE" target="_blank" class="slider-card">
                         <img src="https://img.youtube.com/vi/_6ojZqzUSuE/maxresdefault.jpg" alt="Bhadrachalam Temple Vlog">
                         <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                     </a>
 
-                    <!-- VIDEO 2 (Narasimha Swamy Temple) -->
                     <a href="https://www.youtube.com/watch?v=y29jdWMqnO8" target="_blank" class="slider-card">
                         <img src="https://img.youtube.com/vi/y29jdWMqnO8/maxresdefault.jpg" alt="Narasimha Swamy Temple, Papanashini & Fort Tour">
                         <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                     </a>
 
-                    <!-- VIDEO 3 (Kodaikanal Lake) -->
                     <a href="https://www.youtube.com/watch?v=HG-1yNOm1SE" target="_blank" class="slider-card">
                         <img src="https://img.youtube.com/vi/HG-1yNOm1SE/maxresdefault.jpg" alt="Kodaikanal Lake Boating Experience">
                         <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                     </a>
 
-                    <!-- VIDEO 4 (Maha Shiva Lingam) -->
                     <a href="https://www.youtube.com/watch?v=R2laq53do3w" target="_blank" class="slider-card">
                         <img src="https://img.youtube.com/vi/R2laq53do3w/maxresdefault.jpg" alt="Heaven or Hell Before the Maha Shiva Lingam">
                         <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                     </a>
 
-                    <!-- VIDEO 5 (Borra Caves) -->
                     <a href="https://www.youtube.com/watch?v=DbjDE9lmTXQ" target="_blank" class="slider-card">
                         <img src="https://img.youtube.com/vi/DbjDE9lmTXQ/maxresdefault.jpg" alt="Borra Caves Araku Valley Guide">
                         <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                     </a>
 
-                    <!-- VIDEO 6 (Tirumala Balaji) -->
                     <a href="https://www.youtube.com/watch?v=HT8QdyewAQI" target="_blank" class="slider-card">
                         <img src="https://img.youtube.com/vi/HT8QdyewAQI/maxresdefault.jpg" alt="Walking to Tirumala Balaji Temple">
                         <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                     </a>
 
-                    <!-- ======================================================= -->
-                    <!-- DUPLICATE COPIES (Repeated exactly for the seamless infinite loop) -->
-                    <!-- ======================================================= -->
-                    
-                    <!-- DUP VIDEO 1 -->
                     <a href="https://www.youtube.com/watch?v=_6ojZqzUSuE" target="_blank" class="slider-card" aria-hidden="true">
                         <img src="https://img.youtube.com/vi/_6ojZqzUSuE/maxresdefault.jpg" alt="Bhadrachalam Temple Vlog">
                         <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                     </a>
 
-                    <!-- DUP VIDEO 2 -->
                     <a href="https://www.youtube.com/watch?v=y29jdWMqnO8" target="_blank" class="slider-card" aria-hidden="true">
                         <img src="https://img.youtube.com/vi/y29jdWMqnO8/maxresdefault.jpg" alt="Narasimha Swamy Temple, Papanashini & Fort Tour">
                         <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                     </a>
 
-                    <!-- DUP VIDEO 3 -->
                     <a href="https://www.youtube.com/watch?v=HG-1yNOm1SE" target="_blank" class="slider-card" aria-hidden="true">
                         <img src="https://img.youtube.com/vi/HG-1yNOm1SE/maxresdefault.jpg" alt="Kodaikanal Lake Boating Experience">
                         <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                     </a>
 
-                    <!-- DUP VIDEO 4 -->
                     <a href="https://www.youtube.com/watch?v=R2laq53do3w" target="_blank" class="slider-card" aria-hidden="true">
                         <img src="https://img.youtube.com/vi/R2laq53do3w/maxresdefault.jpg" alt="Heaven or Hell Before the Maha Shiva Lingam">
                         <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                     </a>
 
-                    <!-- DUP VIDEO 5 -->
                     <a href="https://www.youtube.com/watch?v=DbjDE9lmTXQ" target="_blank" class="slider-card" aria-hidden="true">
                         <img src="https://img.youtube.com/vi/DbjDE9lmTXQ/maxresdefault.jpg" alt="Borra Caves Araku Valley Guide">
                         <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
                     </a>
 
-                    <!-- DUP VIDEO 6 -->
                     <a href="https://www.youtube.com/watch?v=HT8QdyewAQI" target="_blank" class="slider-card" aria-hidden="true">
                         <img src="https://img.youtube.com/vi/HT8QdyewAQI/maxresdefault.jpg" alt="Walking to Tirumala Balaji Temple">
                         <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
@@ -347,7 +327,30 @@
 
         </main>
 
-        <!-- Native Form Submission (Pure HTML Only) -->
+        <section style="background-color: var(--card-bg); border-radius: 16px; padding: 1.5rem; margin-top: 2rem; margin-bottom: 2rem; border: 1px solid #e2e8f0;">
+            <h2 style="font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: var(--text-main);">🔍 Channel Video Finder</h2>
+            
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <input type="text" id="channelSearchInput" placeholder="Enter YouTube Channel Handle (e.g. technofixs2603 or triplounna)..." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #334155; font-family: inherit;">
+                <button id="searchBtn" onclick="findChannelVideos()" style="background-color: var(--text-main); color: var(--bg-color); border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s;">
+                    Search
+                </button>
+            </div>
+
+            <div id="searchResultsDisplay" style="display: none; flex-direction: column; gap: 1.5rem;">
+                <div>
+                    <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--text-main); border-bottom: 2px solid #e2e8f0; padding-bottom: 0.25rem;">📹 Top 3 Long Videos</h3>
+                    <div id="longVideosContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;"></div>
+                </div>
+                <div>
+                    <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--text-main); border-bottom: 2px solid #e2e8f0; padding-bottom: 0.25rem;">📱 Top 3 Short Videos (Shorts)</h3>
+                    <div id="shortVideosContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;"></div>
+                </div>
+            </div>
+            
+            <div id="searchErrorMessage" style="display: none; color: #dc2626; font-size: 0.9rem; text-align: center; margin-top: 0.5rem;"></div>
+        </section>
+
         <section style="background-color: #ffffff; border-radius: 12px; padding: 2rem; margin-top: 2rem; border: 1px solid #e2e8f0; max-width: 500px; margin-left: auto; margin-right: auto; position: relative; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
             
             <div style="position: absolute; top: 20px; right: 20px; background-color: #2d3748; color: #ffffff; padding: 8px 16px; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase;">
@@ -355,15 +358,10 @@
             </div>
 
             <form action="mailto:travelxp994@gmail.com" method="GET" enctype="text/plain" style="margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem;">
-                
                 <input type="text" name="Name" placeholder="Your Name" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #334155; font-family: inherit;">
-                
                 <input type="email" name="Email" placeholder="Your email" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #334155; font-family: inherit;">
-                
                 <input type="text" name="Subject" placeholder="Subject" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #334155; font-family: inherit;">
-                
                 <textarea name="Message" placeholder="Your Message" rows="3" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #334155; font-family: inherit; resize: vertical; min-height: 80px;"></textarea>
-                
                 <button type="submit" style="width: 100%; background-color: #dc2626; color: #ffffff; border: none; padding: 0.85rem; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background-color 0.2s; font-family: inherit; margin-top: 0.5rem;">
                     Submit
                 </button>
@@ -375,5 +373,82 @@
         </footer>
     </div>
 
+    <script>
+        async function findChannelVideos() {
+            let query = document.getElementById('channelSearchInput').value.trim();
+            const searchBtn = document.getElementById('searchBtn');
+            const resultsBlock = document.getElementById('searchResultsDisplay');
+            const errorBlock = document.getElementById('searchErrorMessage');
+            const longContainer = document.getElementById('longVideosContainer');
+            const shortContainer = document.getElementById('shortVideosContainer');
+
+            // Reset page states
+            resultsBlock.style.display = 'none';
+            errorBlock.style.display = 'none';
+            longContainer.innerHTML = '';
+            shortContainer.innerHTML = '';
+
+            if (!query) return;
+
+            // Extract core handle name clean from text strings or raw URL lines
+            if (query.includes('youtube.com/')) {
+                let parts = query.split('youtube.com/');
+                query = parts[1].split('/')[0].replace('@', '');
+            } else {
+                query = query.replace('@', '');
+            }
+
+            // Simple loading state feedback
+            searchBtn.innerText = "Searching...";
+            searchBtn.disabled = true;
+
+            try {
+                // Wired directly to your live production server function
+                const backendUrl = `https://triplounna-backend.vercel.app/api/search?handle=${encodeURIComponent(query)}`;
+                
+                const response = await fetch(backendUrl);
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Unable to scan that channel layout.');
+                }
+
+                // Render Dynamic Long Form Results
+                if(data.longVideos && data.longVideos.length > 0) {
+                    data.longVideos.forEach(vid => {
+                        longContainer.innerHTML += createVideoTemplateCard(vid.id, vid.title);
+                    });
+                } else {
+                    longContainer.innerHTML = '<p style="font-size:0.9rem; color:var(--text-muted); padding:0.5rem;">No recent long form content found.</p>';
+                }
+
+                // Render Dynamic Shorts Form Results
+                if(data.shortVideos && data.shortVideos.length > 0) {
+                    data.shortVideos.forEach(vid => {
+                        shortContainer.innerHTML += createVideoTemplateCard(vid.id, vid.title);
+                    });
+                } else {
+                    shortContainer.innerHTML = '<p style="font-size:0.9rem; color:var(--text-muted); padding:0.5rem;">No recent shorts found.</p>';
+                }
+
+                resultsBlock.style.display = 'flex';
+            } catch (err) {
+                errorBlock.innerText = err.message || "Could not retrieve video lists. Check handle name format.";
+                errorBlock.style.display = 'block';
+            } finally {
+                searchBtn.innerText = "Search";
+                searchBtn.disabled = false;
+            }
+        }
+
+        function createVideoTemplateCard(id, title) {
+            return `
+                <a href="https://www.youtube.com/watch?v=${id}" target="_blank" style="text-decoration: none; display: block; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: transform 0.2s;">
+                    <img src="https://img.youtube.com/vi/${id}/mqdefault.jpg" alt="${title}" style="width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover;">
+                    <span style="display: block; padding: 0.6rem; font-size: 0.85rem; color: #0f172a; font-weight: 600; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${title}">${title}</span>
+                </a>
+            `;
+        }
+    </script>
 </body>
 </html>
