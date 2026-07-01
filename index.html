@@ -28,7 +28,7 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
-            padding: 0 1rem 2rem 1rem;
+            padding: 0 0 2rem 0;
             
             /* Required for position absolute watermark alignment */
             position: relative;
@@ -51,45 +51,49 @@
             pointer-events: none; 
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+        /* NEW: Full-width Header wrap to break out of the 800px limit */
+        .header-wrap {
+            width: 100%;
+            border-bottom: 1px solid #e2e8f0;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px); /* Optional: makes it look premium when scrolling */
         }
 
-        /* Reconfigured Navigation Bar Layout */
+        /* Full-width edge-to-edge layout styling with padding */
         .navbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1.25rem 0;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 1.25rem 2rem; /* Left/Right padding keeps it clean from the absolute pixel edge */
+            width: 100%;
         }
 
         .nav-brand {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem; /* Increased gap spacing */
             text-decoration: none;
             color: var(--text-main);
         }
 
+        /* Increased size for the logo graphic */
         .nav-logo {
-            width: 45px;
-            height: 45px;
+            width: 55px; 
+            height: 55px;
             border-radius: 50%;
             object-fit: cover;
         }
 
+        /* Increased font weight and sizing for branding text */
         .nav-title {
-            font-size: 1.3rem;
+            font-size: 1.6rem; 
             font-weight: 800;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.04em;
         }
 
         .nav-links {
             display: flex;
-            gap: 1.25rem;
+            gap: 1.75rem; /* Wider gaps between items */
             list-style: none;
         }
 
@@ -97,7 +101,7 @@
             text-decoration: none;
             color: var(--text-main);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1.05rem; /* Upgraded text scale sizing */
             transition: color 0.2s;
         }
 
@@ -105,9 +109,17 @@
             color: var(--accent-color);
         }
 
+        /* Main core container for sections */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
         /* Secondary Page Intro Header */
         header {
             text-align: center;
+            margin-top: 2rem;
             margin-bottom: 2.5rem;
         }
 
@@ -254,23 +266,24 @@
         }
 
         /* Mobile Navbar Responsive Fixes */
-        @media (max-width: 520px) {
+        @media (max-width: 600px) {
             .navbar {
                 flex-direction: column;
                 gap: 1rem;
                 align-items: center;
                 text-align: center;
+                padding: 1.25rem 1rem;
             }
             .nav-links {
-                gap: 1rem;
+                gap: 1.25rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- New Top Navbar Integration -->
+    <!-- Full-Width Header Wrapper sitting outside .container element -->
+    <div class="header-wrap">
         <nav class="navbar">
             <a href="#" class="nav-brand">
                 <img src="logo.png" alt="TripLoUnna Logo" class="nav-logo">
@@ -283,6 +296,10 @@
                 <li><a href="#map">Map</a></li>
             </ul>
         </nav>
+    </div>
+
+    <!-- Main Content Container Wrapper -->
+    <div class="container">
 
         <header>
             <p class="subtitle">Exploring landmarks, historical marvels, and travel journeys one video at a time.</p>
