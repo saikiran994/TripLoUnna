@@ -239,7 +239,7 @@
         <section class="featured-video">
             <h2>🎬 Latest Explorations</h2>
             
-            <div class="video-slider-track-window" style="width: 100%; overflow: hidden; position: relative; mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);">
+            <div class="video-slider-track-window" style="width: 100%; overflow: hidden; position: relative; mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);">
                 
                 <div class="video-slider-track" style="display: flex; gap: 1rem; width: max-content; animation: scrollRightToLeft 35s linear infinite;">
                     
@@ -331,7 +331,7 @@
             <h2 style="font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: var(--text-main);">🔍 Channel Video Finder</h2>
             
             <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
-                <input type="text" id="channelSearchInput" placeholder="Enter YouTube Channel Handle (e.g. technofixs2603 or triplounna)..." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #334155; font-family: inherit;">
+                <input type="text" id="channelSearchInput" placeholder="Enter YouTube Channel Handle or URL (e.g. beingkalyann)..." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; color: #334155; font-family: inherit;">
                 <button id="searchBtn" onclick="findChannelVideos()" style="background-color: var(--text-main); color: var(--bg-color); border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s;">
                     Search
                 </button>
@@ -390,12 +390,11 @@
 
             if (!query) return;
 
-            // Extract core handle name clean from text strings or raw URL lines
+            // Robust URL extraction parsing out queries, slashes, and symbols smoothly
             if (query.includes('youtube.com/')) {
-                let parts = query.split('youtube.com/');
-                query = parts[1].split('/')[0].replace('@', '');
+                query = query.split('youtube.com/')[1].split('?')[0].split('/')[0].replace('@', '').trim();
             } else {
-                query = query.replace('@', '');
+                query = query.replace('@', '').trim();
             }
 
             // Simple loading state feedback
