@@ -56,13 +56,13 @@
             margin: 0 auto;
         }
 
-        /* Top Navigation Bar Layout (Logo Left, Menu Links Right) */
+        /* Reconfigured Navigation Bar Layout */
         .navbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 1.25rem 0;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             border-bottom: 1px solid #e2e8f0;
         }
 
@@ -82,14 +82,14 @@
         }
 
         .nav-title {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 800;
-            letter-spacing: -0.04em;
+            letter-spacing: -0.03em;
         }
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.25rem;
             list-style: none;
         }
 
@@ -105,10 +105,10 @@
             color: var(--accent-color);
         }
 
-        /* Cleaned Header / Subtitle Layout */
+        /* Secondary Page Intro Header */
         header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .subtitle {
@@ -253,15 +253,16 @@
             color: var(--text-muted);
         }
 
-        /* Adaptive Navbar collapse settings for small mobile screen frames */
+        /* Mobile Navbar Responsive Fixes */
         @media (max-width: 520px) {
             .navbar {
                 flex-direction: column;
                 gap: 1rem;
-                padding: 1rem 0;
+                align-items: center;
+                text-align: center;
             }
             .nav-links {
-                gap: 1.25rem;
+                gap: 1rem;
             }
         }
     </style>
@@ -269,7 +270,7 @@
 <body>
 
     <div class="container">
-        <!-- Brand Navigation Header Configuration -->
+        <!-- New Top Navbar Integration -->
         <nav class="navbar">
             <a href="#" class="nav-brand">
                 <img src="logo.png" alt="TripLoUnna Logo" class="nav-logo">
@@ -287,7 +288,7 @@
             <p class="subtitle">Exploring landmarks, historical marvels, and travel journeys one video at a time.</p>
         </header>
 
-        <!-- Search Feature Panel Wrapper Component -->
+        <!-- Channel Explorer Search Section -->
         <section style="background-color: var(--card-bg); border-radius: 16px; padding: 1.5rem; margin-top: 2rem; margin-bottom: 2rem; border: 1px solid #e2e8f0;">
             <h2 style="font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: var(--text-main);">🔍 Channel Best Video Finder</h2>
             
@@ -312,7 +313,7 @@
             <div id="searchErrorMessage" style="display: none; color: #dc2626; font-size: 0.9rem; text-align: center; margin-top: 0.5rem;"></div>
         </section>
 
-        <!-- Carousel Slider Banner Section Component -->
+        <!-- Infinite Scrolling Moving Video Slider Section -->
         <section class="featured-video">
             <h2>🎬 Latest Explorations</h2>
             
@@ -404,6 +405,7 @@
 
         </main>
 
+        <!-- Dynamic User Form Section -->
         <section style="background-color: #ffffff; border-radius: 12px; padding: 2rem; margin-top: 2rem; border: 1px solid #e2e8f0; max-width: 500px; margin-left: auto; margin-right: auto; position: relative; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
             
             <div style="position: absolute; top: 20px; right: 20px; background-color: #2d3748; color: #ffffff; padding: 8px 16px; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase;">
@@ -426,7 +428,6 @@
         </footer>
     </div>
 
-    <!-- Live Execution & Application Core Framework -->
     <script>
         async function findChannelVideos() {
             let query = document.getElementById('channelSearchInput').value.trim();
@@ -519,4 +520,3 @@
     </script>
 </body>
 </html>
- 
